@@ -1,0 +1,41 @@
+.bordi{
+    border: 2px solid black;
+}
+.bot-log{
+    /* border: 2px solid black; */
+    padding: 0.2em 0.75em;
+    margin: 1em 0;
+     background-color: rgb(173, 3, 3);
+     color: white;
+     border-radius: 8px;
+}
+.btn-casa{
+    background-color: rgb(3, 33, 199);
+    color: white;
+    border-radius: 8px;
+    padding: 0.2em 0.75em;
+    margin: 1em 0;
+    border: none;
+    position: relative;
+    bottom: 10px;
+}
+.btn-cat{
+    color: white;
+    background-color: rgb(3, 33, 199);
+    padding: 5px;
+    border-radius: 8px;
+}
+
+
+.card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.btnelimina{
+    color: white;
+    background-color: red;
+    padding: 5px;
+    border-radius: 8px;
+}
