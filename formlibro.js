@@ -12,8 +12,8 @@ class BookService {
             title: datiLibro.title,
             description: datiLibro.description,
             year: datiLibro.year,
-            categoryId: 5,
-            authorId: 3,
+            // categoryId: 5,
+            // authorId: 3,
         };
         console.log("Dati inviati:", datiLibro); // Log dei dati inviati
         return await fetch(this.basePath, {
@@ -50,6 +50,50 @@ function gestisciInvioForm(evento) {
         .catch(errore => console.error('Errore nell\'aggiunta del libro:', errore));
 }
 
-
+class CategoryService{
+    basePath="https://localhost:7173/api/Category";
+    async getCategories() {
+        return fetch(this.basePath)
+            .then(r => r.json());
+    }
+}
+async function loadAllCategory() {
+    const categoryService = new CategoryService();
+    try {
+        const categoryService = await categoryService.getCategories();
+        console.log(categoryService);
+        categoryService.forEach(category => {
+            loadSingleCategory(category);
+        });
+    } catch (error) {
+        console.error("Error loading books:", error);
+    }
+}
 
 document.getElementById('form').addEventListener('submit', gestisciInvioForm);
+
+function loadSingleCategory(category) {
+    const listcontainer = document.getElementById("select-multi");
+    const categoryElement = document.createElement('div');
+ 
+    categoryElement.innerHTML = `
+                    <div class="relative z-0 w-full mb-5 group">
+                        <label for="author" name="author" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Autore</label>
+                        <select id="author" name="author" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            
+                        
+                        </select>
+                    </div>
+
+                    <div class="relative z-0 w-full mb-5 group">
+                        <label for="category" name="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Categorie</label>
+                        <select id="category" name="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option>${category.category.map(cat=>cat.name)} </option>    
+                           
+                        </select>
+                    </div>
+    `;
+  
+
+    listcontainer.appendChild(categoryElement);
+}
