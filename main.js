@@ -107,28 +107,7 @@ class BookService {
             .then(r => r.json());
     }
 
-    async aggiungiLibro(datiLibro) {
-        const payload = {
-            title: datiLibro.title,
-            description: 'datiLibro.description',
-            year: 2000,
-            categoryId: 2,
-            authorId: 2,
-        };
-        console.log("Dati inviati:", datiLibro); // Log dei dati inviati
-        return fetch(this.basePath, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(payload)
-        }).then(r =>{
-            console.log("Dati inviati:", r.status); // Log dei dati inviati  
-            return r.status;
-        }).catch(err => {
-            console.error("Error loading books:", err);
-        });
-    }
+
 }
 
 async function loadAllBooks() {
@@ -155,23 +134,6 @@ async function deleteBook(id) {
     });
 }
 
-function gestisciInvioForm(evento) {
-    evento.preventDefault();
-    const form = evento.target;
-    const formData = new FormData(form);
-    const datiLibro = Object.fromEntries(formData.entries());
-
-    console.log("Dati dal form:", datiLibro); // Log dei dati dal form
-
-    const servizioLibri = new BookService();
-    servizioLibri.aggiungiLibro(datiLibro)
-        .then(nuovoLibro => {
-            console.log('Libro aggiunto:', nuovoLibro);
-            // loadSingleBook(nuovoLibro);
-            // form.reset();
-        })
-        .catch(errore => console.error('Errore nell\'aggiunta del libro:', errore));
-}
 
 function loadSingleBook(book) {
     const listcontainer = document.getElementById("bookList");
@@ -202,6 +164,6 @@ function loadSingleBook(book) {
     listcontainer.appendChild(bookElement);
 }
 
-document.getElementById('form').addEventListener('submit', gestisciInvioForm);
+
 
 loadAllBooks();
