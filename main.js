@@ -148,6 +148,7 @@ function loadSingleBook(book) {
                 <div class="flex justify-between sm:gap-4">
                     <button class="btn-cat">Categoria</button>
                     <button class="btnelimina"data-id="${book.id}">Elimina</button>
+                    <button class="btnmodifica"data-id="${book.id}"><a href="updatelibro.html">Modifica</a></button>
                 </div>
             </div>
         </div>
