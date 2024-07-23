@@ -39,7 +39,6 @@ function loadSingleCategory(category) {
  
     categoryElement.innerHTML = `
         <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800">
-            <p class="text-white">${category.id}</p>
             <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${category.name}</h5>
                 <div class="flex justify-between sm:gap-4">
