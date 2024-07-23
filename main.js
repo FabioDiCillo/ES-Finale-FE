@@ -147,6 +147,7 @@ function loadSingleBook(book) {
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${book.title}</h5>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${book.description}</p>
             <p class="mb-3 font-small text-gray-700 dark:text-gray-400">Anno: ${book.year}</p>
+            <p class="mb-3 font-small text-gray-700 dark:text-gray-400">Autore: ${book.author.name} ${book.author.surname}</p>
         <div class="flex justify-between sm:gap-4">
             <button class="btn-cat"><a href="listacategorie.html">Categoria</a></button>
              <button class="btnelimina"data-id="${book.id}">Elimina</button>
