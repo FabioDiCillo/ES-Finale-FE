@@ -45,7 +45,9 @@ function loadSingleCategory(category) {
                 <div class="flex justify-between sm:gap-4">
 
                     <button class="btn-cat"><a href="listalibri.html">Libri</a></button>
+                    <button class="btnmodifica"data-id="${category.id}"><a href="updatecategoria.html?categoryId=${category.id}">Modifica</a></button>
                     <button class="btnelimina"data-id="${category.id}">Elimina</button>
+
                 </div>
             </div>
         </div>

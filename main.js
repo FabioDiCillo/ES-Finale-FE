@@ -141,14 +141,14 @@ function loadSingleBook(book) {
  
     bookElement.innerHTML = `
         <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800">
-            <p class="text-white">${book.year}</p>
+            <p class="text-gray-700">Anno: ${book.year}</p>
             <div class="flex flex-col justify-between p-4 leading-normal">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${book.title}</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${book.description}</p>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Titolo: ${book.title}</h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Descrizione: ${book.description}</p>
                 <div class="flex justify-between sm:gap-4">
                     <button class="btn-cat">Categoria</button>
                     <button class="btnelimina"data-id="${book.id}">Elimina</button>
-                    <button class="btnmodifica"data-id="${book.id}"><a href="updatelibro.html">Modifica</a></button>
+                    <button class="btnmodifica"data-id="${book.id}"><a href="updatelibro.html?bookId=${book.id}">Modifica</a></button>
                 </div>
             </div>
         </div>

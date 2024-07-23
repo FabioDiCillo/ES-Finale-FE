@@ -114,7 +114,7 @@ async function loadAllAuthors() {
         authors.forEach(author => {
             const optionElement = document.createElement("option");
             optionElement.value = author.id;
-            optionElement.text = author.name;
+            optionElement.text = author.name + "  " + author.surname;
             selectElement.appendChild(optionElement);
         });
     } else {
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadAllCategories();
     loadAllAuthors();
   
-    const form = document.getElementById('form'); // Assicurati che l'ID del form sia corretto
+    const form = document.getElementById('form'); // Prendo l'ID del form 
     if (form) {
         form.addEventListener('submit', gestisciInvioForm);
     } else {
