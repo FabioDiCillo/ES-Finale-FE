@@ -92,3 +92,8 @@ audio, canvas, embed, iframe, img, object, svg, video {
     display: inline-block !important;
     vertical-align: middle !important;
 }
+
+.altezza{
+    height: 600px;
+    padding: 0px 20px;
+}
